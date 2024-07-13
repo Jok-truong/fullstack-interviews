@@ -1,19 +1,13 @@
 ### 1. Sự khác nhau giữa `var` , `let`, `const`
 
-| keyword                                                                                                    | const               | let | var |
-| ---------------------------------------------------------------------------------------------------------- | ------------------- | --- | --- |
-| Scope (phạm vi)                                                                                            | const và let :      |
-| - Cả hai đều là block scope, nghĩa là chúng chỉ có thể truy cập được trong block {} mà chúng được khai báo | const và let :      |
-| - Cả hai đều là block scope, nghĩa là chúng chỉ có thể truy cập được trong block {} mà chúng được khai báo | phạm vi của var là: |
+| keyword         | const                                                                                                                                                                                                    | let                                                                                                                                                                                                      | var                                                                                                                                                                  |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scope (phạm vi) | `const` và `let` : Cả hai đều là block scope, nghĩa là chúng chỉ có thể truy cập được trong block `{}` mà chúng được khai báo                                                                            | `const` và `let` : Cả hai đều là block scope, nghĩa là chúng chỉ có thể truy cập được trong block `{}` mà chúng được khai báo                                                                            | - Function scope nếu nó được khai báo trong một hàm. <br/> - Global scope nếu nó được khai báo ngoài hàm                                                             |
+| Hoisting        | `let` hoặc `const` khi được hoist không khởi tạo với giá trị `undefined`. Thay vào đó, chúng sẽ có trạng thái gọi là `Temporal Dead Zone` → dẫn đến lỗi `ReferenceError` nếu truy cập trước khi khao báo | `let` hoặc `const` khi được hoist không khởi tạo với giá trị `undefined`. Thay vào đó, chúng sẽ có trạng thái gọi là `Temporal Dead Zone` → dẫn đến lỗi `ReferenceError` nếu truy cập trước khi khao báo | - Tất cả các định nghĩa biến với var có giá trị ban đầu là undefined . Đó là vì hoisting đã đưa các khai báo biến vào bộ nhớ và khởi tạo chúng với giá trị undefined |
 
-- Function scope nếu nó được khai báo trong một hàm.
-- Global scope nếu nó được khai báo ngoài hàm |
-  | Hoisting | let hoặc const khi được hoist không khởi tạo với giá trị undefined. Thay vào đó, chúng sẽ có trạng thái gọi là Temporal Dead Zone → dẫn đến lỗi ReferenceError nếu truy cập trước khi khao báo | let hoặc const khi được hoist không khởi tạo với giá trị undefined. Thay vào đó, chúng sẽ có trạng thái gọi là Temporal Dead Zone → dẫn đến lỗi ReferenceError nếu truy cập trước khi khao báo | Tất cả các định nghĩa biến với var có giá trị ban đầu là undefined . Đó là vì hoisting đã đưa các khai báo biến vào bộ nhớ và khởi tạo chúng với giá trị undefined
-  |
-  | Khai báo lại (Re-declaration)
-  Cập nhật (update) | - Không thể update giá trị cũng như re-declaration.
-- Khi khoa báo, const yêu cầu phải được khởi tạo giá trị | - Có thể update nhưng không thể re-declaration trong cùng một scope
-- Tuy nhiên, có thể re-declaration trong scope khác nhau | Có thể re-declaration, update trong cùng một scope |
+| Khai báo lại (Re-declaration)
+Cập nhật (update) | - Không thể update giá trị cũng như re-declaration.
+<br/> - Khi khoa báo, const yêu cầu phải được khởi tạo giá trị| `let` hoặc `const` khi được hoist không khởi tạo với giá trị `undefined`. Thay vào đó, chúng sẽ có trạng thái gọi là `Temporal Dead Zone` → dẫn đến lỗi `ReferenceError` nếu truy cập trước khi khao báo | - Tất cả các định nghĩa biến với var có giá trị ban đầu là undefined . Đó là vì hoisting đã đưa các khai báo biến vào bộ nhớ và khởi tạo chúng với giá trị undefined |
 
 ### 2. **Hoisting trong Javascript**
 
@@ -83,6 +77,7 @@ counter(); // 1
 
 - `Array` là một kiểu dữ liệu tham chiếu (reference type) được dùng để lưu trữ liều giá trị trong một biến duy nhất. Mỗi giá trị trong array được gọi là phần tử (element), và mỗi element có một chỉ mục (index) bất đầu từ 0
 - Khai báo `Array`
+
   ```tsx
   // Array literals
   var foo = [];
@@ -92,6 +87,7 @@ counter(); // 1
   var foo = new Array();
   var numbers = new Array(1, 2, 3, 4, 5);
   ```
+
 - Thuộc tính và phương thức
 
   - `length` thuộc tính trả về độ dài mảng
@@ -128,6 +124,7 @@ counter(); // 1
     console.log(arr.length); // Output: 6
     ```
   - `map(), filter(), find(), reduce()` Các phương thức tìm kiếm, biến đổi và xử lý dữ liệu trong mảng
+
     ```tsx
     // map
     let arr = [1, 2, 3, 4, 5];
@@ -152,6 +149,7 @@ counter(); // 1
     );
     console.log(sum); // Output: 15
     ```
+
   - `includes()` phương thức kiểm tra sự tồn tại của một phần tử trong mang và trả về `true` hoặc `false`
     ```tsx
     let arr = [1, 2, 3, 4, 5];
@@ -172,8 +170,10 @@ counter(); // 1
     ```
 
 - Lưu ý:
+
   - Mảng trong JS có thể chứa các phần từ với kiểu dữ liệu hác nhau, bao gồm số, chuỗi, …
   - Mảng có thể sử dụng với các loops như `for, forEach, for ... of` để duyệt qua các phần từ
+
     ```tsx
     // for
     let array = [1, 2, 3, 4];
@@ -198,6 +198,7 @@ counter(); // 1
 
 - một hàm sẽ được thực thi sau khi một hàm khác được thực thi xong
 - Một hàm được truyền như là một đối số vào một hàm khác và sẽ được thực thi sau khi hàm kia đã hoàn thành một nhiệm vụ cụ thể.
+
   ```tsx
   function doSomething(callback) {
     console.log("Doing something...");
@@ -212,10 +213,12 @@ counter(); // 1
   // Gọi hàm doSomething và truyền hàm finished làm callback
   doSomething(finished);
   ```
+
 - Callback trong các thao tác bất đồng bộ
   `setTimeout` nhận một callback function và thực hiện nó sau 2 giây. `console.log('End')` được thực hiện trước callback function vì `setTimeout` là bất đồng bộ.
-      ```tsx
-      console.log('Start');
+
+  ````tsx
+  console.log('Start');
 
       setTimeout(function() {
           console.log('This is a callback function');
@@ -223,7 +226,11 @@ counter(); // 1
 
       console.log('End');
       ```
+
+  ````
+
 - Lưu Ý
+
   - **Callback Hell:** Khi sử dụng quá nhiều callback lồng nhau, mã nguồn có thể trở nên khó đọc và bảo trì. Điều này thường được gọi là "Callback Hell" hoặc "Pyramid of Doom".
     ```tsx
     doTask1(function (result1) {
@@ -235,6 +242,7 @@ counter(); // 1
     });
     ```
   - Giải pháp cho CallBack Hell:
+
     - Promises
       ```tsx
       doTask1()
@@ -248,6 +256,7 @@ counter(); // 1
         });
       ```
     - Async/Await
+
       ```tsx
       async function performTasks() {
         try {
@@ -295,6 +304,7 @@ counter(); // 1
   ```
 
 - **`async/await`** (Được giới thiệu trong ES8) là cú pháp ngắn gọn và dễ đọc hơn để làm việc với Promises. Từ khóa `async` được sử dụng để khai báo một hàm bất đồng bộ, hàm này sẽ tự động trả về một Promise. Từ khóa `await` chỉ có thể được sử dụng bên trong hàm `async` và nó sẽ tạm dừng việc thực hiện hàm cho đến khi Promise được giải quyết.
+
   ```tsx
   async function fetchData() {
     return new Promise((resolve, reject) => {
@@ -335,25 +345,31 @@ counter(); // 1
 
 2.  **Trong một hàm (Function context)**
     Trong một hàm thông thường, `this` cũng tham chiếu đến đối tượng `global` (hoặc `window` trong trình duyệt) khi hàm đó không thuộc về một đối tượng cụ thể.
-        ```tsx
-        function myFunction() {
-            console.log(this);
-        }
+
+    ````tsx
+    function myFunction() {
+    console.log(this);
+    }
 
         myFunction(); // Trong trình duyệt: trả về đối tượng window
         ```
+
+    ````
+
 3.  **Trong một phương thức của đối tượng (Object method context)**
     Khi `this` được sử dụng bên trong một phương thức của đối tượng, nó tham chiếu đến đối tượng chủ sở hữu của phương thức đó.
-        ```tsx
-        let person = {
-            name: "Alice",
-            greet: function() {
-                console.log(this.name);
-            }
-        };
+
+    ````tsx
+    let person = {
+    name: "Alice",
+    greet: function() {
+    console.log(this.name);
+    }
+    };
 
         person.greet(); // Trả về "Alice"
         ```
+    ````
 
 ---
 
@@ -378,4 +394,4 @@ sayHi();
 → **D**
 
 - Trong hàm đã khai báo biến `name` với `var` ⇒ Điều đó có nghĩa là biến này sẽ được **hoisted** với giá trị mặc định là `undefined` , cho tới khi chúng ta thạt sự định nghĩa biến đó.
-- Các biến khác được khai báo với `let` được **hoisted** nhưng khó giống `var` , chúng không được khởi tạo. Chúng ta sẽ không thể truy cập chúng cho tới khi khao báo chúng. Người ta gọi đó là `temporal dead zone` ⇒ Javascript sẽ throws một `ReferenceError`
+- Các biến khác được khai báo với `let` được **hoisted** nhưng khó giống `var` , chúng không được khởi tạo. Chúng ta sẽ không thể truy cập chúng cho tới khi khao báo chúng. Người ta gọi đó là `tem`poral dead zo`ne` ⇒ Javascript sẽ throws một `ReferenceError`
